@@ -1,0 +1,330 @@
+define({ "api": [
+  {
+    "type": "DESC",
+    "url": "App测试说明",
+    "title": "",
+    "name": "App测试说明",
+    "group": "1.License（描述）",
+    "description": "<p>License组件App测试说明</p>",
+    "parameter": {
+      "examples": [
+        {
+          "title": "说明:",
+          "content": " \n- > ### 测试证书生成（Creator）\n\n配置文件启用creator模式配置且pom.xml文件引入license-creator-spring-boot-starter包\n\nspring.profiles.active = creator\n\n<dependency>\n    <groupId>com.appleyk.spring.boot</groupId>\n    <artifactId>license-creator-spring-boot-starter</artifactId>\n    <version>0.2.1-SNAPSHOT</version>\n</dependency>\n\n详细配置请查看application-creator.properties文件\n\n\n- > ### 测试证书验证（Verify）\n\n配置文件启用creator模式配置且pom.xml文件引入license-verify-spring-boot-starter包\n\nspring.profiles.active = verify\n\n<dependency>\n    <groupId>com.appleyk.spring.boot</groupId>\n    <artifactId>license-verify-spring-boot-starter</artifactId>\n    <version>0.2.1-SNAPSHOT</version>\n</dependency>\n\n详细配置请查看application-verify.properties文件",
+          "type": "html"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/service.java",
+    "groupTitle": "1.License（描述）"
+  },
+  {
+    "type": "DESC",
+    "url": "自定义属性验证使用说明",
+    "title": "",
+    "name": "自定义属性验证使用说明",
+    "group": "1.License（描述）",
+    "description": "<p>License组件自定义属性验证说明</p>",
+    "parameter": {
+      "examples": [
+        {
+          "title": "说明:",
+          "content": "使用License组件自定义属性验证功能需要继承AGxCustomVerifyListener类，\n并且实现verify方法，使用@Component注解，验证成功需要返回true\n\npublic abstract boolean verify(LicenseExtraParam licenseExtra) throws Exception;\n\n详细可参考TestACustomVerifyListener文件示例",
+          "type": "html"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/service.java",
+    "groupTitle": "1.License（描述）"
+  },
+  {
+    "type": "DESC",
+    "url": "证书认证模块使用说明",
+    "title": "",
+    "name": "证书认证模块使用说明",
+    "group": "1.License（描述）",
+    "description": "<p>License认证模块使用说明</p>",
+    "parameter": {
+      "examples": [
+        {
+          "title": "说明:",
+          "content": "使用证书验证，需要增加license-verify-spring-boot-starter模块依赖，在需要证书验证的接口上\n增加@VLicense注解，模块系统中需要增加相应的证书配置，验证模块中需要放公钥和证书文件",
+          "type": "text"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/service.java",
+    "groupTitle": "1.License（描述）"
+  },
+  {
+    "type": "GET",
+    "url": "/license/download",
+    "title": "3 下载许可证书",
+    "name": "download",
+    "group": "2.License_（接口）",
+    "version": "v0.2.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "path",
+            "description": "<p>证书所在路径</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "下载证书:",
+          "content": "http://127.0.0.1:8080/license/download?path=/home/license/20200509134009/license.lic",
+          "type": "json"
+        }
+      ]
+    },
+    "description": "<p>可以直接调用该接口，也可以直接通过证书生成返回的licUrl信息，将其复制到浏览器中进行下载</p>",
+    "filename": "src/service.java",
+    "groupTitle": "2.License_（接口）"
+  },
+  {
+    "type": "POST",
+    "url": "/license/generate",
+    "title": "2 生成许可证书",
+    "name": "generate",
+    "group": "2.License_（接口）",
+    "description": "<p>开发或市场人员通过填写业务系统软件许可证书的注册信息，来生成相应的lic；注册成功后，可将返回结果中的licUrl的地址，复制到浏览器中进行下载, 即将服务器生成好的软件许可证书liccense.lic文件下载到本地</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "subject",
+            "description": "<p>证书名称，非空</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "privateAlias",
+            "description": "<p>私钥别名，非空</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "keyPass",
+            "description": "<p>私钥密码，非空</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "storePass",
+            "description": "<p>私钥库密码，非空</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "licensePath",
+            "description": "<p>证书生成地址，非空</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "issuedTime",
+            "description": "<p>授权日期，非空</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "expiryTime",
+            "description": "<p>证书失效日期，非空</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "consumerType",
+            "description": "<p>授权用户类型（默认1）</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "consumerAmount",
+            "description": "<p>授权用户数量</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>证书描述信息</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "licenseCheck",
+            "description": "<p>证书额外验证信息对象</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "bool",
+            "optional": false,
+            "field": "licenseCheck.ipCheck",
+            "description": "<p>是否验证ip地址列表，非空</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "List",
+            "optional": false,
+            "field": "licenseCheck.ipAddress",
+            "description": "<p>可被允许的ip地址列表</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "bool",
+            "optional": false,
+            "field": "licenseCheck.macCheck",
+            "description": "<p>是否验证mac地址列表</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "List",
+            "optional": false,
+            "field": "licenseCheck.macAddress",
+            "description": "<p>可被允许的mac地址列表</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "bool",
+            "optional": false,
+            "field": "licenseCheck.isCpuCheck",
+            "description": "<p>是否验证cpu序列号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "licenseCheck.cpuSerial",
+            "description": "<p>可被允许的cpu序列号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "bool",
+            "optional": false,
+            "field": "licenseCheck.isBoardCheck",
+            "description": "<p>是否验证主板号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "licenseCheck.mainBoardSerial",
+            "description": "<p>可被允许的主板序列号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "bool",
+            "optional": false,
+            "field": "licenseCheck.registerCheck",
+            "description": "<p>是否验证注册人数</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "List",
+            "optional": false,
+            "field": "licenseCheck.registerAmount",
+            "description": "<p>可被允许的最大注册人数限制</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "licUrl",
+            "description": "<p>许可证书的（服务器）下载地址</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "生成许可证书:",
+          "content": "/license/generate",
+          "type": "json"
+        },
+        {
+          "title": "params-Json:",
+          "content": " {\n    \"subject\": \"landi\",\n    \"privateAlias\": \"privateKeys\",\n    \"keyPass\": \"123456a\",\n    \"storePass\": \"123456a\",\n    \"privateKeysStorePath\": \"/privateKeys.store\",\n    \"issuedTime\": \"2020-05-01 08:30:00\",\n    \"expiryTime\": \"2021-05-01 08:30:00\",\n    \"description\": \"系统软件许可证书\",\n    \"licenseCheck\": {\n        \"ipAddress\": [\n            \"192.168.1.2\",\n            \"2408:8221:1d:bbd0:ad77:446e:4904:a776\",\n            \"2408:8221:1d:bbd0:71b6:d1b0:39c6:3c4e\",\n            \"192.168.145.1\",\n            \"192.168.239.1\"\n        ],\n        \"macAddress\": [\n            \"64-FB-81-6F-0E-C2\",\n            \"00-50-56-C0-00-08\",\n            \"00-50-56-C0-00-01\"\n        ],\n        \"cpuSerial\": \"BFEBFBFF000206D7\",\n        \"mainBoardSerial\": \"MB-201706282017\",\n        \"registerAmount\": 1000,\n        \"macCheck\": false,\n        \"boardCheck\": false,\n        \"cpuCheck\": false,\n        \"ipCheck\": false,\n        \"registerCheck\": true\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "v0.2.1",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n    \"status\": 200,\n    \"message\": \"证书生成成功，证书有效期：2020-05-01 08:30:00 - 2021-05-01 08:30:00\",\n    \"data\": {\n        \"subject\": \"landi\",\n        \"privateAlias\": \"privateKeys\",\n        \"keyPass\": \"123456a\",\n        \"storePass\": \"123456a\",\n        \"licensePath\": \"/data/license/20200509134009/license.lic\",\n        \"privateKeysStorePath\": \"/privateKeys.store\",\n        \"issuedTime\": \"2020-05-01 08:30:00\",\n        \"expiryTime\": \"2021-05-01 08:30:00\",\n        \"consumerType\": \"user\",\n        \"consumerAmount\": 1,\n        \"description\": \"系统软件许可证书\",\n        \"licenseCheck\": {\n            \"ipAddress\": [\n                \"192.168.1.2\",\n                \"2408:8221:1d:bbd0:ad77:446e:4904:a776\",\n                \"2408:8221:1d:bbd0:71b6:d1b0:39c6:3c4e\",\n                \"192.168.145.1\",\n                \"192.168.239.1\"\n            ],\n            \"macAddress\": [\n                \"64-FB-81-6F-0E-C2\",\n                \"00-50-56-C0-00-08\",\n                \"00-50-56-C0-00-01\"\n            ],\n            \"cpuSerial\": \"BFEBFBFF000206D7\",\n            \"mainBoardSerial\": \"MB-201706282017\",\n            \"registerAmount\": 1000,\n            \"registerCheck\": true,\n            \"cpuCheck\": false,\n            \"boardCheck\": false,\n            \"ipCheck\": false,\n            \"macCheck\": false\n        },\n        \"licUrl\": \"http://127.0.0.1:8080/license/download?path=/data/license/20200509134009/license.lic\"\n    },\n    \"timestamp\": \"2020-08-22 12:51:09\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/service.java",
+    "groupTitle": "2.License_（接口）"
+  },
+  {
+    "type": "GET",
+    "url": "/license/getServerInfos",
+    "title": "1 获取硬件信息",
+    "name": "getServerInfos",
+    "group": "2.License_（接口）",
+    "version": "v0.2.1",
+    "description": "<p>部署人员通过该接口，可以获取到系统所在的部署目标服务器（集群）的硬件信息，通过将该信息提供给开发或市场人员，可以由开发或市场人员根据实际情况进行相应的lic的注册</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "osName",
+            "description": "<p>系统类型（选填，不填的话，程序字段获取）</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "获取硬件信息:",
+          "content": "/license/getServerInfos",
+          "type": "json"
+        },
+        {
+          "title": "params-Json:",
+          "content": "{\n    \"osName\": \"linux\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n    \"status\": 200,\n    \"message\": \"成功\",\n    \"data\": {\n        \"ipAddress\": [\n            \"192.168.1.103\"\n        ],\n        \"macAddress\": [\n            \"00-50-56-BD-54-BE\"\n        ],\n        \"cpuSerial\": \"564d90d1-baff-8747-80ef-1c32318df424\",\n        \"mainBoardSerial\": \"Not\",\n        \"registerAmount\": null,\n        \"registerCheck\": false,\n        \"cpuCheck\": false,\n        \"boardCheck\": false,\n        \"ipCheck\": false,\n        \"macCheck\": false\n    },\n    \"timestamp\": \"2020-08-22 12:53:34\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/service.java",
+    "groupTitle": "2.License_（接口）"
+  }
+] });

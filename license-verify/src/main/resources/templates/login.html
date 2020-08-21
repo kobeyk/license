@@ -1,0 +1,95 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>用户登录页面</title>
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+        //回车登录
+        function enterlogin(e) {
+            var key = window.event ? e.keyCode : e.which;
+            if (key === 13) {
+                userLogin();
+            }
+        }
+
+        //用户密码登录
+        function userLogin() {
+            //获取用户名、密码
+            var username = $("#username").val();
+            var password = $("#password").val();
+
+            var json = {
+                "userName": username,
+                "password": password
+            };
+
+            if (username == null || username === "") {
+                $("#errMsg").text("请输入登陆用户名！");
+                $("#errMsg").attr("style", "display:block");
+                return;
+            }
+            if (password == null || password === "") {
+                $("#errMsg").text("请输入登陆密码！");
+                $("#errMsg").attr("style", "display:block");
+                return;
+            }
+
+            $.ajax({
+                url: "/user/login",
+                type: "POST",
+                contentType : 'application/json',
+                dataType : 'JSON',
+                async: false,
+                data: JSON.stringify(json),
+                success: function (data) {
+                    console.log(data.message)
+                    if (data.status == "200") {
+                        $("#errMsg").attr("style", "display:none");
+                        window.location.href = '/success';
+                    } else if (data.result != null) {
+                        $("#errMsg").text(data.result);
+                        $("#errMsg").attr("style", "display:block");
+                    } else {
+                        $("#errMsg").text(data.message);
+                        $("#errMsg").attr("style", "display:block");
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body onkeydown="enterlogin(event);">
+<div class="container">
+    <div class="form row">
+        <div class="form-horizontal col-md-offset-3" id="login_form">
+            <h3 class="form-title">LOGIN</h3>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <i class="fa fa-user fa-lg"></i>
+                    <input class="form-control required" type="text" placeholder="Username" id="username"
+                           name="username" autofocus="autofocus" maxlength="20"/>
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-lock fa-lg"></i>
+                    <input class="form-control required" type="password" placeholder="Password" id="password"
+                           name="password" maxlength="8"/>
+                </div>
+                <div class="form-group">
+                    <span class="errMsg" id="errMsg" style="display: none">错误提示</span>
+                </div>
+                <div class="form-group col-md-offset-9">
+                    <button type="submit" class="btn btn-success pull-right" name="submit" onclick="userLogin()">登录
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

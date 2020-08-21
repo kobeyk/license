@@ -1,0 +1,35 @@
+{
+  "groups": [
+    {
+      "name": "springboot.license",
+      "sourceType": "com.appleyk.verify.config.LicenseVerifyProperties",
+      "type": "com.appleyk.verify.config.LicenseVerifyProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "springboot.license.verify.subject",
+      "type": "java.lang.String",
+      "description": "证书名称."
+    },
+    {
+      "name": "springboot.license.verify.publicAlias",
+      "type": "java.lang.String",
+      "description": "公钥别名."
+    },
+    {
+      "name": "springboot.license.verify.publicKeysStorePath",
+      "type": "java.lang.String",
+      "description": "公钥库所在的位置."
+    },
+    {
+      "name": "springboot.license.verify.storePass",
+      "type": "java.lang.String",
+      "description": "公钥库访问密码."
+    },
+    {
+      "name": "springboot.license.verify.licensePath",
+      "type": "java.lang.String",
+      "description": "证书所在的位置."
+    }
+  ] }

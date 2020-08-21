@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <artifactId>license-spring-boot</artifactId>
+        <groupId>com.appleyk.spring.boot</groupId>
+        <version>0.2.1-SNAPSHOT</version>
+    </parent>
+
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>license-app-spring-boot-starter</artifactId>
+    <name>license-app</name>
+    <version>0.2.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <description>系统软件证书应用模块,可打包成war包，运行与web容器中，对外提供lic相关服务</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <jackson.version>2.9.6</jackson.version>
+    </properties>
+
+    <dependencies>
+
+        <!--引入creator模块时，App具有生成和下载lic文件的功能-->
+        <dependency>
+            <groupId>com.appleyk.spring.boot</groupId>
+            <artifactId>license-creator-spring-boot-starter</artifactId>
+            <version>0.2.1-SNAPSHOT</version>
+        </dependency>
+
+        <!--引入verify模块时，App具有验证lic文件的功能-->
+<!--        <dependency>-->
+<!--            <groupId>com.appleyk.spring.boot</groupId>-->
+<!--            <artifactId>license-verify-spring-boot-starter</artifactId>-->
+<!--            <version>0.2.1-SNAPSHOT</version>-->
+<!--        </dependency>-->
+
+    </dependencies>
+
+    <build>
+        <finalName>license-app-spring-boot-starter</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

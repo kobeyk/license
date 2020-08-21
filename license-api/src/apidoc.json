@@ -1,0 +1,11 @@
+{
+  "name": "License接口API",
+  "version": "0.2.1",
+  "description": "v0.2.1 系统软件许可证书 -- 接口文档",
+  "title": "系统软件许可证书API",
+   "url" : "http://127.0.0.1:8080",
+  "template": {
+  	"withCompare": true,
+  	"withGenerator": true
+  }
+}

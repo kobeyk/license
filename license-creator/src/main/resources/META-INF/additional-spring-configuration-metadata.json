@@ -1,0 +1,14 @@
+{ "groups": [
+  {
+    "name": "springboot.license.generate",
+    "sourceType": "com.appleyk.creator.config.LicenseCreatorProperties",
+    "type": "com.appleyk.creator.config.LicenseCreatorProperties"
+  }
+  ],
+  "properties": [
+    {
+      "name": "springboot.license.generate.tempPath",
+      "type": "java.lang.String",
+      "description": "证书生成临时路径."
+  }
+] }
