@@ -176,16 +176,16 @@ public class LicenseCreatorParam implements Serializable {
                 "subject='" + subject + '\'' +
                 ", privateAlias='" + privateAlias + '\'' +
                 ", keyPass='" + keyPass + '\'' +
-                ", storePass='" + storePass + '\'' +
-                ", licensePath='" + licensePath.replaceAll("\\\\","/") + '\'' +
                 ", privateKeysStorePath='" + privateKeysStorePath + '\'' +
+                ", storePass='" + storePass + '\'' +
+                ", licensePath='" + licensePath + '\'' +
                 ", issuedTime=" + issuedTime +
                 ", expiryTime=" + expiryTime +
                 ", consumerType='" + consumerType + '\'' +
                 ", consumerAmount=" + consumerAmount +
                 ", description='" + description + '\'' +
                 ", licenseCheck=" + licenseCheck +
-                ", licUrl=" + licUrl+
+                ", licUrl='" + licUrl + '\'' +
                 '}';
     }
 

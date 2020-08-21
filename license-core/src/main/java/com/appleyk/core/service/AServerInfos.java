@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
  */
 public abstract class AServerInfos {
 
-    private static class GxServerInfosContainer{
+    private static class GxServerInfosContainer {
         private static List<String> ipAddress = null;
         private static List<String> macAddress = null;
         private static String cpuSerial = null;
@@ -31,9 +31,10 @@ public abstract class AServerInfos {
 
     /**
      * <p>组装需要额外校验的License参数</p>
+     *
      * @return LicenseExtraParam 自定义校验参数
      */
-    public LicenseExtraParam getServerInfos(){
+    public LicenseExtraParam getServerInfos() {
         LicenseExtraParam result = new LicenseExtraParam();
         try {
             initServerInfos();
@@ -41,33 +42,35 @@ public abstract class AServerInfos {
             result.setMacAddress(GxServerInfosContainer.macAddress);
             result.setCpuSerial(GxServerInfosContainer.cpuSerial);
             result.setMainBoardSerial(GxServerInfosContainer.mainBoardSerial);
-        }catch (Exception e){
-            LoggerHelper.error("获取服务器硬件信息失败",e);
+        } catch (Exception e) {
+            LoggerHelper.error("获取服务器硬件信息失败", e);
         }
         return result;
     }
 
     /**
      * <p>初始化服务器硬件信息，并将信息缓存到内存</p>
+     *
      * @throws Exception 默认异常
      */
     private void initServerInfos() throws Exception {
-        if(GxServerInfosContainer.ipAddress == null){
+        if (GxServerInfosContainer.ipAddress == null) {
             GxServerInfosContainer.ipAddress = this.getIpAddress();
         }
-        if(GxServerInfosContainer.macAddress == null){
+        if (GxServerInfosContainer.macAddress == null) {
             GxServerInfosContainer.macAddress = this.getMacAddress();
         }
-        if(GxServerInfosContainer.cpuSerial == null){
+        if (GxServerInfosContainer.cpuSerial == null) {
             GxServerInfosContainer.cpuSerial = this.getCPUSerial();
         }
-        if(GxServerInfosContainer.mainBoardSerial == null){
+        if (GxServerInfosContainer.mainBoardSerial == null) {
             GxServerInfosContainer.mainBoardSerial = this.getMainBoardSerial();
         }
     }
 
     /**
      * <p>获取IP地址</p>
+     *
      * @return List<String> IP地址
      * @throws Exception 默认异常
      */
@@ -82,6 +85,7 @@ public abstract class AServerInfos {
 
     /**
      * <p>获取Mac地址</p>
+     *
      * @return List<String> Mac地址
      * @throws Exception 默认异常
      */
@@ -96,11 +100,12 @@ public abstract class AServerInfos {
 
     /**
      * <p>获取服务器信息</p>
+     *
      * @param osName 系统类型
      * @return AGxServerInfos 服务信息
      */
-    public static AServerInfos getServer(String osName){
-        if("".equals(osName) || osName == null){
+    public static AServerInfos getServer(String osName) {
+        if ("".equals(osName) || osName == null) {
             osName = System.getProperty("os.name").toLowerCase();
         }
         AServerInfos abstractServerInfos;
@@ -109,7 +114,7 @@ public abstract class AServerInfos {
             abstractServerInfos = new WindowsServerInfos();
         } else if (osName.startsWith("linux")) {
             abstractServerInfos = new LinuxServerInfos();
-        }else{//其他服务器类型
+        } else {//其他服务器类型
             abstractServerInfos = new LinuxServerInfos();
         }
         return abstractServerInfos;
@@ -118,21 +123,25 @@ public abstract class AServerInfos {
     /**
      * <p>获取服务器临时磁盘位置</p>
      */
-    public static String getServerTempPath(){
-        String osName = System.getProperty("os.name").toLowerCase();
-        //根据不同操作系统类型选择不同的数据获取方法
-        if (osName.startsWith("windows")) {
-            String property = System.getProperty("user.dir");
-            return property.substring(0,property.indexOf(":")+1);
-        } else if (osName.startsWith("linux")) {
-            return "/data";
-        }else{//其他服务器类型
-            return "/data";
-        }
+    public static String getServerTempPath() {
+
+        String property = System.getProperty("user.dir");
+        return property;
+
+        //String osName = System.getProperty("os.name").toLowerCase();
+        ////根据不同操作系统类型选择不同的数据获取方法
+        //if (osName.startsWith("windows")) {
+        //    return property.substring(0,property.indexOf(":")+1);
+        //} else if (osName.startsWith("linux")) {
+        //    return "/home";
+        //}else{//其他服务器类型
+        //    return "/home";
+        //}
     }
 
     /**
      * <p>获取CPU序列号</p>
+     *
      * @return String 主板序列号
      * @throws Exception 默认异常
      */
@@ -140,6 +149,7 @@ public abstract class AServerInfos {
 
     /**
      * <p>获取主板序列号</p>
+     *
      * @return String 主板序列号
      * @throws Exception 默认异常
      */
@@ -147,6 +157,7 @@ public abstract class AServerInfos {
 
     /**
      * <p>获取当前服务器所有符合条件的网络地址</p>
+     *
      * @return List<InetAddress> 网络地址列表
      * @throws Exception 默认异常
      */
@@ -159,8 +170,8 @@ public abstract class AServerInfos {
             for (Enumeration addresses = ni.getInetAddresses(); addresses.hasMoreElements(); ) {
                 InetAddress address = (InetAddress) addresses.nextElement();
                 //排除LoopbackAddress、SiteLocalAddress、LinkLocalAddress、MulticastAddress类型的IP地址
-                if(!address.isLoopbackAddress() /*&& !inetAddr.isSiteLocalAddress()*/
-                        && !address.isLinkLocalAddress() && !address.isMulticastAddress()){
+                if (!address.isLoopbackAddress() /*&& !inetAddr.isSiteLocalAddress()*/
+                        && !address.isLinkLocalAddress() && !address.isMulticastAddress()) {
                     result.add(address);
                 }
             }
@@ -170,22 +181,23 @@ public abstract class AServerInfos {
 
     /**
      * <p>获取某个网络地址对应的Mac地址</p>
+     *
      * @param inetAddr 网络地址
      * @return String Mac地址
      */
-    private String getMacByInetAddress(InetAddress inetAddr){
+    private String getMacByInetAddress(InetAddress inetAddr) {
         try {
             byte[] mac = NetworkInterface.getByInetAddress(inetAddr).getHardwareAddress();
             StringBuilder stringBuilder = new StringBuilder();
-            for(int i=0;i<mac.length;i++){
-                if(i != 0) {
+            for (int i = 0; i < mac.length; i++) {
+                if (i != 0) {
                     stringBuilder.append("-");
                 }
                 /** 将十六进制byte转化为字符串 */
                 String temp = Integer.toHexString(mac[i] & 0xff);
-                if(temp.length() == 1){
+                if (temp.length() == 1) {
                     stringBuilder.append("0").append(temp);
-                }else{
+                } else {
                     stringBuilder.append(temp);
                 }
             }

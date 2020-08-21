@@ -1,5 +1,6 @@
 package com.appleyk.creator.controller;
 
+import com.appleyk.core.ex.CommonException;
 import com.appleyk.core.model.LicenseCreatorParam;
 import com.appleyk.core.result.ResponseResult;
 import com.appleyk.core.service.AServerInfos;
@@ -52,14 +53,16 @@ public class LicenseCreatorController {
             SimpleDateFormat format =  new SimpleDateFormat("yyyyMMddHHmmss");
             String tempPath = properties.getTempPath();
             if(tempPath == null || "".equals(tempPath)){
-                // 如果默认临时文件等于空的话，就从服务器上取一个默认的
+                // 如果默认临时文件等于空的话，就获取当前服务执行的路径
                 tempPath = AServerInfos.getServerTempPath();
             }
             // 根据时间戳，命名lic文件
             String licDir = tempPath+"/license/"+format.format(System.currentTimeMillis());
             File file = new File(licDir);
             if(!file.exists()){
-                file.mkdirs();
+               if(!file.mkdirs()){
+                   throw new CommonException("创建目录"+licDir+",失败，请检查是是否有创建目录的权限或者手动进行创建！");
+               }
             }
             param.setLicensePath(licDir + "/license.lic");
         }

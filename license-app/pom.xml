@@ -27,18 +27,18 @@
     <dependencies>
 
         <!--引入creator模块时，App具有生成和下载lic文件的功能-->
-        <dependency>
-            <groupId>com.appleyk.spring.boot</groupId>
-            <artifactId>license-creator-spring-boot-starter</artifactId>
-            <version>0.2.1-SNAPSHOT</version>
-        </dependency>
-
-        <!--引入verify模块时，App具有验证lic文件的功能-->
 <!--        <dependency>-->
 <!--            <groupId>com.appleyk.spring.boot</groupId>-->
-<!--            <artifactId>license-verify-spring-boot-starter</artifactId>-->
+<!--            <artifactId>license-creator-spring-boot-starter</artifactId>-->
 <!--            <version>0.2.1-SNAPSHOT</version>-->
 <!--        </dependency>-->
+
+        <!--引入verify模块时，App具有验证lic文件的功能-->
+        <dependency>
+            <groupId>com.appleyk.spring.boot</groupId>
+            <artifactId>license-verify-spring-boot-starter</artifactId>
+            <version>0.2.1-SNAPSHOT</version>
+        </dependency>
 
     </dependencies>
 
