@@ -44,7 +44,7 @@ application.properties文件中添加如下配置：
 - > springboot.license.verify.licensePath =classpath:license.lic 
 
 
-###==========License相关配置===========
+============License相关配置=============
 
 生成证书的请求参数（json）：
 
@@ -83,7 +83,7 @@ application.properties文件中添加如下配置：
 }
 ```
 
-###==========License相关配置===========
+============License相关配置=============
 
 ### license.api 
 证书接口文档
