@@ -108,3 +108,13 @@ application.properties文件中添加如下配置：
 ：内置lic文件变动定时检测功能，如业务系统需要用到，只需要在SpringBoot启动类上，添加@EnableScheduling注解即可
 
 ：如需在接口上开启License验证功能，只需要在对应的API方法上添加@VLicense注解即可
+
+### 效果图 
+
+![图1](https://i.postimg.cc/wBz3ZLHM/11.png)
+
+![图2](https://i.postimg.cc/G2V4MNpw/12.png)
+
+![图3](https://i.postimg.cc/jqnwWs8s/13.png)
+
+![图4](https://i.postimg.cc/bwpsF1qJ/14.png)
