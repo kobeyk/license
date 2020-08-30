@@ -7,9 +7,9 @@
 
 本篇博客地址：https://blog.csdn.net/Appleyk/article/details/101530203
 
-# license.app
+## license.app
 
-软件许可应用WebApp
+软件许可应用（WebApp，主要用于引入license模块，便于测试）
 
 1、首先要用KeyTool工具来生成私钥库：（-alias别名 –validity 3650表示10年有效）
 keytool -genkey -alias privatekeys -keysize 1024 -keystore privateKeys.store -validity 3650
@@ -24,7 +24,7 @@ keytool -import -alias publiccert -file certfile.cer -keystore publicCerts.store
 
 application.properties文件中添加如下配置：
 
-#License相关配置
+##License相关配置
  证书名称
 - > springboot.license.verify.subject=landi
 
@@ -40,12 +40,11 @@ application.properties文件中添加如下配置：
 证书生成的临时位置（如果参数不指定，则由程序自动进行处理）
 - > springboot.license.generate.temp.dir=D:/app/licenses/
 
-证书所在系统中的的位置 == 默认放在classes下面
+证书所在系统中的的位置（默认放在classes下面）
 - > springboot.license.verify.licensePath =classpath:license.lic 
 
 
-#================License相关配置===============#
-
+###==========License相关配置===========
 
 生成证书的请求参数（json）：
 
@@ -84,10 +83,28 @@ application.properties文件中添加如下配置：
 }
 ```
 
-# license.api 证书接口文档
+###==========License相关配置===========
 
-# license.core 证书核心模块
+### license.api 
+证书接口文档
 
-# license.creator 证书生成
+### license.app 
+证书应用App
 
-# license.verify 证书验证
+：可打包成war（默认war）或jar，进行部署
+
+### license.core 
+证书核心模块
+
+
+### license.creator 
+证书生成模块
+
+：也包括lic文件下载接口
+
+### license.verify 
+证书验证模块
+
+：内置lic文件变动定时检测功能，如业务系统需要用到，只需要在SpringBoot启动类上，添加@EnableScheduling注解即可
+
+：如需在接口上开启License验证功能，只需要在对应的API方法上添加@VLicense注解即可
