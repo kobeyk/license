@@ -11,16 +11,16 @@
 
 软件许可应用（WebApp，主要用于引入license模块，便于测试）
 
-1、首先要用KeyTool工具来生成私钥库：（-alias别名 –validity 3650表示10年有效）
+1、首先要用KeyTool工具来生成密钥库：（-alias别名 –validity 3650表示10年有效）
 keytool -genkey -alias privatekeys -keysize 1024 -keystore privateKeys.store -validity 3650
 
-2、然后把私钥库内的公钥导出到一个文件当中：
+2、然后将密钥库中名称为‘privatekeys’的证书条目导出到证书文件certfile.cer中：
 keytool -export -alias privatekeys -file certfile.cer -keystore privateKeys.store
 
-3、然后再把这个证书文件导入到公钥库：
+3、然后再把这个证书文件的信息导入到公钥库中别名为publiccert的证书条目中：
 keytool -import -alias publiccert -file certfile.cer -keystore publicCerts.store
 
-最后生成文件privateKeys.store、publicCerts.store拷贝出来备用。
+最后生成的文件privateKeys.store和publicCerts.store拷贝出来备用。
 
 application.properties文件中添加如下配置：
 

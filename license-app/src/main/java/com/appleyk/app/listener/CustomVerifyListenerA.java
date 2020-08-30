@@ -33,7 +33,7 @@ public class CustomVerifyListenerA extends ACustomVerifyListener {
          * 然后拿着这个数量和lic参数中约束的最大注册用户量进行比较，如果>，则抛出异常
          * 这样做的目的是防止业务系统部署到客户端本地服务器上时，数据库是公开的，防止对方通过手动改表来添加用户
          */
-        long count = 100;
+        long count = 1001;
         if(count>=registerAmount){
             throw new CommonException(ResultCode.FAIL,"系统当前用户数超过最大用户注册限制数【"+registerAmount+"】");
         }

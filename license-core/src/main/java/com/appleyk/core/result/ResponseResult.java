@@ -18,14 +18,14 @@ import java.util.Date;
 public class ResponseResult {
 
     /** 响应结果状态码*/
-    private  Integer status;
+    private Integer status;
 
     /** 响应结果消息*/
-    private  String message;
+    private String message;
 
     /** 响应结果对应的（包含）的数据，空的话不反序列话*/
     @JsonInclude(value = Include.NON_NULL)
-    private  Object data;
+    private Object data;
 
     /** 响应时间*/
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
