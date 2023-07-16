@@ -32,7 +32,7 @@ public class LicenseCreatorService {
                     DateUtils.date2Str(param.getIssuedTime()), DateUtils.date2Str(param.getExpiryTime()));
             return ResponseResult.ok(message,param);
         }else{
-            return ResponseResult.fail("证书文件生成失败！");
+            return ResponseResult.fail("证书文件生成失败！原因："+licenseResult.getException().getMessage());
         }
     }
 

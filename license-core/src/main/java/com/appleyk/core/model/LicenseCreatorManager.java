@@ -50,7 +50,7 @@ public class LicenseCreatorManager {
             LoggerHelper.error(e.getMessage());
             String message = MessageFormat.format("证书生成失败！：{0}", param);
             LoggerHelper.error(message,e);
-            return new LicenseResult(message,e);
+            return new LicenseResult(String.format("证书文件生成失败！原因：%s",e.getMessage()),e);
         }
     }
 

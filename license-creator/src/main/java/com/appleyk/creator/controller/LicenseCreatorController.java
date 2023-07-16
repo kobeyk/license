@@ -57,7 +57,7 @@ public class LicenseCreatorController {
                 tempPath = AServerInfos.getServerTempPath();
             }
             // 根据时间戳，命名lic文件
-            String licDir = tempPath+"/license/"+format.format(System.currentTimeMillis());
+            String licDir = tempPath+"/lic-files/"+format.format(System.currentTimeMillis());
             File file = new File(licDir);
             if(!file.exists()){
                if(!file.mkdirs()){
@@ -65,7 +65,7 @@ public class LicenseCreatorController {
                }
             }
             /**统一下路径分隔符*/
-            param.setLicensePath(licDir.replace("\\","/") + "/license.lic");
+            param.setLicensePath(licDir.replace("\\","/")+ "/license.lic");
         }
         param.setLicUrl(licPrefixUrl+"download?path="+param.getLicensePath());
         return creatorService.generateLicense(param);

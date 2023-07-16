@@ -12,7 +12,7 @@ import de.schlichtherle.license.LicenseContent;
  */
 public class LicenseResult {
 
-    /** 检验结果 */
+    /** 验证结果，true为验证通过，false则为失败 */
     private Boolean result;
     /** 附加信息 */
     private String message;
