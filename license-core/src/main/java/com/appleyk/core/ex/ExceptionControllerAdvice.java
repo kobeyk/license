@@ -1,14 +1,11 @@
-package com.appleyk.app.excep;
+package com.appleyk.core.ex;
 
-import com.appleyk.core.ex.CommonException;
 import com.appleyk.core.result.ResponseResult;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 /**
  * <p>全局接口异常拦截器</p>

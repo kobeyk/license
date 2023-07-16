@@ -1,10 +1,9 @@
-package com.appleyk.app.listener;
+package com.appleyk.verify.listener;
 
 import com.appleyk.core.ex.CommonException;
+import com.appleyk.core.listener.ACustomVerifyListener;
 import com.appleyk.core.model.LicenseExtraParam;
 import com.appleyk.core.result.ResultCode;
-import com.appleyk.verify.listener.ACustomVerifyListener;
-import com.sun.media.sound.SoftTuning;
 import org.springframework.stereotype.Component;
 
 /**
@@ -35,7 +34,7 @@ public class CustomVerifyListenerA extends ACustomVerifyListener {
          */
         long count = 1001;
         if(count>=registerAmount){
-            throw new CommonException(ResultCode.FAIL,"系统当前用户数超过最大用户注册限制数【"+registerAmount+"】");
+            throw new CommonException(ResultCode.INTERNAL,"系统当前用户数超过最大用户注册限制数【"+registerAmount+"】");
         }
 
         System.out.println("系统注册最大用户数量未超过"+count+"，验证用过！");
@@ -52,7 +51,7 @@ public class CustomVerifyListenerA extends ACustomVerifyListener {
     public boolean verify() throws CommonException{
         Long count = 100L;
         if(count.equals(registerAmount)){
-            throw new CommonException(ResultCode.FAIL,
+            throw new CommonException(ResultCode.INTERNAL,
                     "系统当前用户数已达到最大用户注册限制数【"+registerAmount+"】，无法再注册新用户。如需扩充用户注册的数量，请联系我们重新购买License！");
         }
         return true;

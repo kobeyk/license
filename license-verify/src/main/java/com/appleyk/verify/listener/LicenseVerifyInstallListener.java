@@ -26,7 +26,7 @@ import java.io.FileNotFoundException;
  * @date created on 00:02 上午 2020/8/22
  */
 @Component
-public class LicenseVerifyListener implements ApplicationListener<ContextRefreshedEvent> {
+public class LicenseVerifyInstallListener implements ApplicationListener<ContextRefreshedEvent> {
 
     @Autowired
     private LicenseVerifyProperties properties;
@@ -42,8 +42,8 @@ public class LicenseVerifyListener implements ApplicationListener<ContextRefresh
             try{
                 String readMd5 = getMd5(properties.getLicensePath());
                 isLoad = true;
-                if(LicenseVerifyListener.md5 == null || "".equals(LicenseVerifyListener.md5)){
-                    LicenseVerifyListener.md5 =readMd5;
+                if(LicenseVerifyInstallListener.md5 == null || "".equals(LicenseVerifyInstallListener.md5)){
+                    LicenseVerifyInstallListener.md5 =readMd5;
                 }
             }catch (Exception e){
 
@@ -59,9 +59,9 @@ public class LicenseVerifyListener implements ApplicationListener<ContextRefresh
         }
         String readMd5 = getMd5(properties.getLicensePath());
         // 不相等，说明lic变化了
-        if(!readMd5.equals(LicenseVerifyListener.md5)){
+        if(!readMd5.equals(LicenseVerifyInstallListener.md5)){
             install();
-            LicenseVerifyListener.md5 = readMd5;
+            LicenseVerifyInstallListener.md5 = readMd5;
         }
     }
 

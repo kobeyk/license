@@ -1,8 +1,8 @@
-package com.appleyk.app.listener;
+package com.appleyk.verify.listener;
 
 import com.appleyk.core.ex.CommonException;
+import com.appleyk.core.listener.ACustomVerifyListener;
 import com.appleyk.core.model.LicenseExtraParam;
-import com.appleyk.verify.listener.ACustomVerifyListener;
 import org.springframework.stereotype.Component;
 
 /**

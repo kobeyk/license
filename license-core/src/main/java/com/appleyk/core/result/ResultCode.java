@@ -11,7 +11,7 @@ package com.appleyk.core.result;
 public enum ResultCode {
 
     OK(200,"成功"),
-    FAIL(400,"失败"),
+    INTERNAL(500,"内部错误"),
 
     /**
      * 定义内部错误码值

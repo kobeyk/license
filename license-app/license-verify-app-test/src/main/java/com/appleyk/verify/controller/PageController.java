@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class PageController {
 
+    /**
+     * 测试地址：http://localhost:8081/login
+     */
     @GetMapping("/{page}")
     public String getLogin(@PathVariable(name = "page") String page){
         return page+".html";

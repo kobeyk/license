@@ -8,7 +8,7 @@ import com.appleyk.core.result.ResultCode;
 import com.appleyk.core.utils.CommonUtils;
 import com.appleyk.verify.annotion.VLicense;
 import com.appleyk.verify.config.LicenseVerifyProperties;
-import com.appleyk.verify.listener.ACustomVerifyListener;
+import com.appleyk.core.listener.ACustomVerifyListener;
 import de.schlichtherle.license.LicenseContent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
@@ -46,7 +46,7 @@ public class LicenseVerifyInterceptor implements HandlerInterceptor {
                 /** 1、校验证书是否有效 */
                 LicenseResult verifyResult = licenseVerifyManager.verify(properties.getVerifyParam());
                 if(!verifyResult.getResult()){
-                    throw  new CommonException(verifyResult.getMessage());
+                    throw new CommonException(verifyResult.getMessage());
                 }
                 LicenseContent content = verifyResult.getContent();
                 LicenseExtraParam licenseCheck = (LicenseExtraParam) content.getExtra();
@@ -60,7 +60,7 @@ public class LicenseVerifyInterceptor implements HandlerInterceptor {
                     }
                     return compare;
                 }
-                throw new CommonException(ResultCode.FAIL,verifyResult.getException().getMessage());
+                throw new CommonException(ResultCode.INTERNAL,verifyResult.getException().getMessage());
             }
         }
         return true;

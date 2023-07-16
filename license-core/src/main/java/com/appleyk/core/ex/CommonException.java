@@ -23,7 +23,7 @@ public class CommonException extends Exception{
 
     public CommonException(String message){
         super(message);
-        this.resultCode = ResultCode.FAIL;
+        this.resultCode = ResultCode.INTERNAL;
         this.message = message;
     }
 

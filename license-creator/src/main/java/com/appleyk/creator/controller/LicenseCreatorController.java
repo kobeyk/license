@@ -31,7 +31,7 @@ import java.text.SimpleDateFormat;
 @RequestMapping("/license")
 public class LicenseCreatorController {
 
-    @Value("${springboot.license.server.prefix:http://localhost:8066/license/}")
+    @Value("${springboot.license.server.prefix:http://localhost:8080/license/}")
     private String licPrefixUrl ;
 
     @Autowired
@@ -64,7 +64,8 @@ public class LicenseCreatorController {
                    throw new CommonException("创建目录"+licDir+",失败，请检查是是否有创建目录的权限或者手动进行创建！");
                }
             }
-            param.setLicensePath(licDir + "/license.lic");
+            /**统一下路径分隔符*/
+            param.setLicensePath(licDir.replace("\\","/") + "/license.lic");
         }
         param.setLicUrl(licPrefixUrl+"download?path="+param.getLicensePath());
         return creatorService.generateLicense(param);

@@ -71,7 +71,7 @@ public class LicenseCreatorManager {
             e.printStackTrace();
             LoggerHelper.error(e.getMessage());
             LoggerHelper.error(MessageFormat.format("证书下载失败：{0}",param),e);
-            throw new CommonException(ResultCode.FAIL,e.getMessage());
+            throw new CommonException(ResultCode.INTERNAL,e.getMessage());
         }
     }
 

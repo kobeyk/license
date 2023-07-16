@@ -1,27 +1,19 @@
-package com.appleyk.app;
+package com.appleyk.creator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
-/**
- * <p>SpringBoot启动类</p>
- *
- * @author appleyk
- * @version v1.0.0
- * @blob https://blog.csdn.net/appleyk
- * @date created on 10:24 下午 2020/8/21
- */
 @SpringBootApplication
-public class LicenseApp extends SpringBootServletInitializer {
+public class LicenseCreatorApp extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
-        SpringApplication.run(LicenseApp.class, args);
+        SpringApplication.run(LicenseCreatorApp.class, args);
     }
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(LicenseApp.class);
+        return application.sources(LicenseCreatorApp.class);
     }
 }

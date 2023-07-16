@@ -1,12 +1,15 @@
 package com.appleyk.core.model;
 
+import com.appleyk.core.ex.CommonException;
 import com.appleyk.core.helper.LoggerHelper;
 import com.appleyk.core.helper.ParamInitHelper;
+import com.appleyk.core.result.ResultCode;
 import com.appleyk.core.utils.DateUtils;
 import de.schlichtherle.license.*;
 import org.springframework.util.ResourceUtils;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.text.DateFormat;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
@@ -67,6 +70,20 @@ public class LicenseVerifyManager {
 
         /** 3、开始校验证书 */
         try {
+            /**这里要判断下lic文件是不是被用户恶意删除了*/
+            String licensePath = param.getLicensePath();
+            if (licensePath == null || licensePath == ""){
+                String msg = "license.lic路径未指定，验证不通过！";
+                return new LicenseResult(false,msg, new CommonException(ResultCode.INTERNAL,msg));
+            }
+            /**下面两个检测如果文件不存在会抛异常，然后会被捕获到*/
+            if (licensePath.contains("classpath:")){
+                /**检测下当前应用的classes路径下有没有lic文件*/
+                ResourceUtils.getFile(licensePath);
+            }else{
+                /**直接构建file对象检测lic文件是否存在*/
+                new File(licensePath);
+            }
             LicenseContent licenseContent = licenseManager.verify();
             String message = MessageFormat.format("证书校验通过，证书有效期：{0} - {1}",
                     format.format(licenseContent.getNotBefore()),format.format(licenseContent.getNotAfter()));
@@ -79,7 +96,10 @@ public class LicenseVerifyManager {
         }catch (LicenseContentException cex){
             LoggerHelper.error(cex.getMessage(),cex);
             return new LicenseResult(false,cex.getMessage(),cex);
-        } catch (Exception e){
+        }catch (FileNotFoundException fnfe){
+            String msg =String.format("license.lic文件（%s）不存在，验证失败！",param.getLicensePath());
+            return new LicenseResult(false,msg, new CommonException(ResultCode.INTERNAL,msg));
+        }catch (Exception e){
             String message = "证书校验失败！";
             LoggerHelper.error(message,e);
             return new LicenseResult(false,message,e);

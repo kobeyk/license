@@ -1,4 +1,4 @@
-package com.appleyk.verify.listener;
+package com.appleyk.core.listener;
 
 import com.appleyk.core.ex.CommonException;
 import com.appleyk.core.model.LicenseExtraParam;
