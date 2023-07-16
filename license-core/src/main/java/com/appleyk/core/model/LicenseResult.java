@@ -6,7 +6,7 @@ import de.schlichtherle.license.LicenseContent;
  * <p>License证书验证结果对象</p>
  *
  * @author appleyk
- * @version V.0.2.1
+ * @version v1.0.0
  * @blob https://blog.csdn.net/appleyk
  * @date created on  10:42 下午 2020/8/21
  */

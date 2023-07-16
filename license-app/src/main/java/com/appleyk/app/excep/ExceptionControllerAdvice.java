@@ -14,7 +14,7 @@ import java.util.Optional;
  * <p>全局接口异常拦截器</p>
  *
  * @author appleyk
- * @version V.0.2.1
+ * @version v1.0.0
  * @blob https://blog.csdn.net/appleyk
  * @date created on 00:41 下午 2020/8/31
  */

@@ -4,7 +4,7 @@ package com.appleyk.core.result;
  * <p>请求响应结果码</p>
  *
  * @author appleyk
- * @version V.0.2.1
+ * @version v1.0.0
  * @blob https://blog.csdn.net/appleyk
  * @date created on  10:35 下午 2020/8/21
  */

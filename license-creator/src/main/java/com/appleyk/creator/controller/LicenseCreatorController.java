@@ -22,7 +22,7 @@ import java.text.SimpleDateFormat;
  * <p>用于生成证书文件 == !!!不能放在给客户部署的服务器上，以免客户自己调用生成lic</p>
  *
  * @author appleyk
- * @version V.0.2.1
+ * @version v1.0.0
  * @blob https://blog.csdn.net/appleyk
  * @date created on 11:36 下午 2020/8/21
  */

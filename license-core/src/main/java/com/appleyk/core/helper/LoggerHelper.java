@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
  * <p>日志输出辅助类</p>
  *
  * @author appleyk
- * @version V.0.2.1
+ * @version v1.0.0
  * @blob https://blog.csdn.net/appleyk
  * @date created on  10:42 下午 2020/8/21
  */

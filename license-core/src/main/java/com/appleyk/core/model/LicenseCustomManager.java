@@ -18,7 +18,7 @@ import java.util.List;
  * <p>自定义LicenseManager，用于增加额外的服务器硬件信息校验</p>
  *
  * @author appleyk
- * @version V.0.2.1
+ * @version v1.0.0
  * @blob https://blog.csdn.net/appleyk
  * @date created on  10:42 下午 2020/8/21
  */
@@ -206,11 +206,8 @@ public class LicenseCustomManager extends LicenseManager {
     }
 
     /**
-     * <p>
-     *     校验当前服务器的IP/Mac地址是否在可被允许的IP范围内<br/>
-     *     如果存在IP在可被允许的IP/Mac地址范围内，则返回true
-     * </p>
-     *
+     * 校验当前服务器的IP/Mac地址是否在可被允许的IP范围内<br/>
+     * 如果存在IP在可被允许的IP/Mac地址范围内，则返回true
      */
     private boolean checkIpAddress(List<String> expectedList, List<String> serverList){
 

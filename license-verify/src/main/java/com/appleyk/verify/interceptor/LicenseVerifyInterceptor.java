@@ -23,7 +23,7 @@ import java.util.List;
  * <p>License验证拦截器</p>
  *
  * @author appleyk
- * @version V.0.2.1
+ * @version v1.0.0
  * @blob https://blog.csdn.net/appleyk
  * @date created on 00:32 上午 2020/8/22
  */

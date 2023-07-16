@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
  * <p>License生成模块自动扫包/装配Bean实例</p>
  *
  * @author appleyk
- * @version V.0.2.1
+ * @version v1.0.0
  * @blob https://blog.csdn.net/appleyk
  * @date created on 11:33 下午 2020/8/21
  */

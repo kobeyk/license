@@ -10,7 +10,7 @@ import java.util.List;
  * <p>增加业务系统中自定义证书验证监听器</p>
  *
  * @author appleyk
- * @version V.0.2.1
+ * @version v1.0.0
  * @blob https://blog.csdn.net/appleyk
  * @date created on 00:02 上午 2020/8/22
  * @date updated on 23:09 下午 2020/8/30

@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
  * <p>自定义通用异常类</p>
  *
  * @author appleyk
- * @version V.0.2.1
+ * @version v1.0.0
  * @blob https://blog.csdn.net/appleyk
  * @date created on 上午 10:59 2019-4-27
  */

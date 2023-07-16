@@ -22,9 +22,9 @@
 spring.profiles.active = creator
 
 <dependency>
-    <groupId>com.appleyk.spring.boot</groupId>
+    <groupId>com.appleyk</groupId>
     <artifactId>license-creator-spring-boot-starter</artifactId>
-    <version>0.2.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
 </dependency>
 
 详细配置请查看application-creator.properties文件
@@ -37,9 +37,9 @@ spring.profiles.active = creator
 spring.profiles.active = verify
 
 <dependency>
-    <groupId>com.appleyk.spring.boot</groupId>
+    <groupId>com.appleyk</groupId>
     <artifactId>license-verify-spring-boot-starter</artifactId>
-    <version>0.2.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
 </dependency>
 
 详细配置请查看application-verify.properties文件

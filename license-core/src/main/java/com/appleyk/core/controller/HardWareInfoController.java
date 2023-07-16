@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * <p>服务器硬件信息获取API</p>
  *
  * @author appleyk
- * @version V.0.2.1
+ * @version v1.0.0
  * @blob https://blog.csdn.net/appleyk
  * @date created on 10:30 下午 2020/8/21
  */

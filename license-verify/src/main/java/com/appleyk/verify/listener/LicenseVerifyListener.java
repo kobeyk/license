@@ -21,7 +21,7 @@ import java.io.FileNotFoundException;
  * <p>项目启动时安装证书&定时检测lic变化，自动更替lic</p>
  *
  * @author appleyk
- * @version V.0.2.1
+ * @version v1.0.0
  * @blob https://blog.csdn.net/appleyk
  * @date created on 00:02 上午 2020/8/22
  */

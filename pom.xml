@@ -6,13 +6,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.4.RELEASE</version>
+        <version>2.7.9</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.appleyk.spring.boot</groupId>
-    <artifactId>license-spring-boot</artifactId>
-    <version>0.2.1-SNAPSHOT</version>
+    <groupId>com.appleyk</groupId>
+    <artifactId>license-springboot</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -26,7 +26,7 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <jackson.version>2.10.0</jackson.version>
+        <jackson.version>2.14.0</jackson.version>
     </properties>
 
     <dependencies>
@@ -46,20 +46,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/junit/junit -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-        </dependency>
-
-
-        <!-- jackson -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
@@ -74,7 +60,7 @@
     </dependencies>
 
     <build>
-        <finalName>license-spring-boot</finalName>
+        <finalName>license-springboot</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

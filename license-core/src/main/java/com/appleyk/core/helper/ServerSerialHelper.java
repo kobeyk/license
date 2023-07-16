@@ -10,7 +10,7 @@ import java.util.Scanner;
  * <p>获取服务器硬件序列号辅助类</p>
  *
  * @author appleyk
- * @version V.0.2.1
+ * @version v1.0.0
  * @blob https://blog.csdn.net/appleyk
  * @date created on  10:42 下午 2020/8/21
  */

@@ -9,7 +9,7 @@ import java.util.Date;
  * <p>License创建（生成）需要的参数</p>
  *
  * @author appleyk
- * @version V.0.2.1
+ * @version v1.0.0
  * @blob https://blog.csdn.net/appleyk
  * @date created on  10:42 下午 2020/8/21
  */
@@ -52,7 +52,7 @@ public class LicenseCreatorParam implements Serializable {
     /**描述信息*/
     private String description = "";
 
-    /**额外的服务器硬件校验信息*/
+    /**额外的服务器硬件校验信息（或者其他的信息都可以放）*/
     private LicenseExtraParam licenseCheck;
 
     /**证书下载地址 == 一旦证书create成功，这个值就会填充上*/

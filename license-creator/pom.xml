@@ -4,15 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <artifactId>license-spring-boot</artifactId>
-        <groupId>com.appleyk.spring.boot</groupId>
-        <version>0.2.1-SNAPSHOT</version>
+        <artifactId>license-springboot</artifactId>
+        <groupId>com.appleyk</groupId>
+        <version>1.0-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <name>license-creator</name>
     <artifactId>license-creator-spring-boot-starter</artifactId>
-    <version>0.2.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <description>系统软件证书生成模块，负责拉取服务器硬件信息和生成、下载lic证书文件</description>
 
@@ -20,9 +20,9 @@
 
         <!--引入Lic核心模块-->
         <dependency>
-            <groupId>com.appleyk.spring.boot</groupId>
+            <groupId>com.appleyk</groupId>
             <artifactId>license-core-spring-boot-starter</artifactId>
-            <version>0.2.1-SNAPSHOT</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
     </dependencies>

@@ -12,7 +12,7 @@ import java.util.prefs.Preferences;
  * <p>GxParamInitHelper</p>
  *
  * @author appleyk
- * @version V.0.2.1
+ * @version v1.0.0
  * @blob https://blog.csdn.net/appleyk
  * @date created on  10:42 下午 2020/8/21
  */

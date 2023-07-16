@@ -10,7 +10,7 @@
       "examples": [
         {
           "title": "说明:",
-          "content": " \n- > ### 测试证书生成（Creator）\n\n配置文件启用creator模式配置且pom.xml文件引入license-creator-spring-boot-starter包\n\nspring.profiles.active = creator\n\n<dependency>\n    <groupId>com.appleyk.spring.boot</groupId>\n    <artifactId>license-creator-spring-boot-starter</artifactId>\n    <version>0.2.1-SNAPSHOT</version>\n</dependency>\n\n详细配置请查看application-creator.properties文件\n\n\n- > ### 测试证书验证（Verify）\n\n配置文件启用creator模式配置且pom.xml文件引入license-verify-spring-boot-starter包\n\nspring.profiles.active = verify\n\n<dependency>\n    <groupId>com.appleyk.spring.boot</groupId>\n    <artifactId>license-verify-spring-boot-starter</artifactId>\n    <version>0.2.1-SNAPSHOT</version>\n</dependency>\n\n详细配置请查看application-verify.properties文件",
+          "content": " \n- > ### 测试证书生成（Creator）\n\n配置文件启用creator模式配置且pom.xml文件引入license-creator-spring-boot-starter包\n\nspring.profiles.active = creator\n\n<dependency>\n    <groupId>com.appleyk</groupId>\n    <artifactId>license-creator-spring-boot-starter</artifactId>\n    <version>1.0-SNAPSHOT</version>\n</dependency>\n\n详细配置请查看application-creator.properties文件\n\n\n- > ### 测试证书验证（Verify）\n\n配置文件启用creator模式配置且pom.xml文件引入license-verify-spring-boot-starter包\n\nspring.profiles.active = verify\n\n<dependency>\n    <groupId>com.appleyk</groupId>\n    <artifactId>license-verify-spring-boot-starter</artifactId>\n    <version>1.0-SNAPSHOT</version>\n</dependency>\n\n详细配置请查看application-verify.properties文件",
           "type": "html"
         }
       ]

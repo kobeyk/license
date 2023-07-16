@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  * <p>服务器硬件信息抽象类 -- 模板方法，将通用的方法抽离到父类中</p>
  *
  * @author appleyk
- * @version V.0.2.1
+ * @version v1.0.0
  * @blob https://blog.csdn.net/appleyk
  * @date created on  10:42 下午 2020/8/21
  */

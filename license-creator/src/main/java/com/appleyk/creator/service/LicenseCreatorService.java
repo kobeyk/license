@@ -13,7 +13,7 @@ import java.text.MessageFormat;
  * <p>证书生成接口实现</p>
  *
  * @author appleyk
- * @version V.0.2.1
+ * @version v1.0.0
  * @blob https://blog.csdn.net/appleyk
  * @date created on 11:43 下午 2020/8/21
  */

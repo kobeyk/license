@@ -15,7 +15,7 @@ import java.util.Map;
  * <p>Json正反序列化工具类</p>
  *
  * @author appleyk
- * @version V.0.2.1
+ * @version v1.0.0
  * @blob https://blog.csdn.net/appleyk
  * @date created on  11:04 下午 2020/8/21
  */
